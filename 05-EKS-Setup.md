@@ -29,7 +29,8 @@ aws --version
 ```
 curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
 #
-curl --silent --location "https://github.com/eksctlio/eksctl/releases/download/v0.201.0/eksctl_Linux_amd64.tar.gz | tar xz -C /tmp
+curl -Lo eksctl "https://github.com/eksctlio/eksctl/releases/download/v0.201.0/eksctl_Linux_amd64.tar.gz"
+
 sudo mv /tmp/eksctl /usr/local/bin
 eksctl version
 ```

@@ -31,8 +31,11 @@ curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/d
 #
 curl -Lo eksctl "https://github.com/eksctlio/eksctl/releases/download/v0.201.0/eksctl_Linux_amd64.tar.gz"
 
-sudo mv /tmp/eksctl /usr/local/bin
+If not able to get full files download and transfer using filezilla
+tar -xzf 'eksctl_Linux_amd64 (1).tar.gz'
+sudo mv eksctl /usr/local/bin
 eksctl version
+
 ```
 # Step - 2 : Create IAM role & attach to EKS Management Host #
 
@@ -43,6 +46,9 @@ eksctl version
 	- EC2 - fullaccess  <br/>
 	- CloudFomration - fullaccess  <br/>
 	- Administrator - acces <br/>
+        - CloudFomration - fullaccess  <br/>
+	- AmazonEKSClusterPolicy - fullaccess  <br/>
+        - AmazonEKSWorkerNodePolicy - fullaccess  <br/>
 		
 3) Enter Role Name (eksroleec2) 
 4) Attach created role to EKS Management Host (Select EC2 => Click on Security => Modify IAM Role => attach IAM role we have created) 
@@ -70,6 +76,8 @@ eksctl create cluster --name devops-cluster4 --region ap-south-1 --node-type t2.
 
 `
  kubectl get nodes  
+ ---- ip-192-168-22-49.ap-south-1.compute.internal    Ready    <none>   3m31s   v1.30.8-eks-aeac579
+-----  ip-192-168-47-142.ap-south-1.compute.internal   Ready    <none>   3m33s   v1.30.8-eks-aeac579
 `
 
 ## Note: We should be able to see EKS cluster nodes here.**
